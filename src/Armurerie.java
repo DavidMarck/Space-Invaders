@@ -56,7 +56,7 @@ public class Armurerie {
 				return arme;
 			}
 		}
-		
+		System.out.println(arme.getNom());
 		return arme;
 	}
 	

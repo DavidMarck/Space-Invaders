@@ -18,7 +18,6 @@ public class SpaceInvaders {
 		lesJoueurs = new ArrayList<Joueur>();
 		
 		Joueur j1 = new Joueur("maRck","dAviD","OeufMayo");
-		j1.getVaisseau().ajouteArme((Arme)armurerie.getLesArmes().get(0));
 		
 		// Test ArmurerieException
 		/*
@@ -67,7 +66,7 @@ public class SpaceInvaders {
 	{
 		SpaceInvaders jeu = new SpaceInvaders();
 		
-		// On affiche les joueurs, leurs info et le contenu de l'armurerie
+		// On affiche les joueurs, leurs infos et le contenu de l'armurerie
 		System.out.println("Liste des joueurs :");
 		for(Joueur j : jeu.getListJoueurs())
 		{

@@ -40,7 +40,7 @@ public class Arme {
 		
 		cptRecharge -= 1;
 		
-		if(cptRecharge < 1)
+		if(cptRecharge != 1)
 		{
 			return degatsInfliges;
 		}
@@ -137,7 +137,8 @@ public class Arme {
 		return nom
 				+ " [" + "dégâts minimums : " + degMin 
 				+ "; dégâts maximums : " + degMax 
-				+ "; types dégâts : " + typeDegats +"]";
+				+ "; types dégâts : " + typeDegats
+				+ "; temps de rechargement(sec.) : " + tpsRecharge + "]";
 	}
 	
 }

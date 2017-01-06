@@ -90,6 +90,7 @@ public abstract class Vaisseau {
 					lesArmes[i] = arme;
 					break;
 				}
+				i++;
 			}
 		}
 		

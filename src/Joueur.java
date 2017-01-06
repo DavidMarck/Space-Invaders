@@ -10,7 +10,7 @@ public class Joueur {
 		this.nom = formatNP(nom);
 		this.prenom = formatNP(prenom);
 		this.pseudo = pseudo;
-		vaisseau = new Vaisseau(400,800);
+		vaisseau = new ViperMKII();
 	}
 	
 	/*
@@ -27,7 +27,7 @@ public class Joueur {
 		return premLettre + restMot;
 	}
 	
-	// Getters & Setters
+	// Getters, Setters & Overrides
 	public String getNomPrenom() {
 		return prenom + " " + nom;
 	}
@@ -44,8 +44,6 @@ public class Joueur {
 		return vaisseau;
 	}
 
-	
-	// Overrides
 	@Override
 	public boolean equals(Object o)
 	{
