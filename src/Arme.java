@@ -11,7 +11,7 @@ public class Arme {
 	private int degMin, degMax; // dégâts minimums et dégâts maximums
 	private Type typeDegats; // type de dégats du vaisseau (voir enum Type)
 	private int tpsRecharge; // temps de rechargement exprimé en nbre de tours
-	private int cptTours; // compteur de tours (pour contrôler recharge)
+	private int cptRecharge; // compteur de tours (pour contrôler recharge)
 	
 	public Arme(String nom, int degMin, int degMax, Type typeDegats, int tpsRecharge) 
 	{
@@ -20,7 +20,7 @@ public class Arme {
 		this.degMax = degMax;
 		this.typeDegats = typeDegats;
 		this.tpsRecharge = tpsRecharge;
-		cptTours = tpsRecharge;
+		cptRecharge = tpsRecharge;
 	}
 	
 	/*
@@ -30,9 +30,9 @@ public class Arme {
 	{
 		int degatsInfliges = 0;
 		
-		cptTours -= 1;
+		cptRecharge -= 1;
 		
-		if(cptTours != 0)
+		if(cptRecharge != 0)
 		{
 			return degatsInfliges;
 		}
@@ -106,6 +106,22 @@ public class Arme {
 		this.typeDegats = typeDegats;
 	}
 	
+	public int getTpsRecharge() {
+		return tpsRecharge;
+	}
+
+	public void setTpsRecharge(int tpsRecharge) {
+		this.tpsRecharge = tpsRecharge;
+	}
+
+	public int getCptRecharge() {
+		return cptRecharge;
+	}
+
+	public void setCptRecharge(int cptRecharge) {
+		this.cptRecharge = cptRecharge;
+	}
+
 	@Override
 	public String toString()
 	{
