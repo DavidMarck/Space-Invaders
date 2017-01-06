@@ -10,10 +10,10 @@ public class Arme {
 	private String nom; // nom du vaisseau
 	private int degMin, degMax; // dégâts minimums et dégâts maximums
 	private Type typeDegats; // type de dégats du vaisseau (voir enum Type)
-	private int tpsRecharge; // temps de rechargement exprimé en nbre de tours
-	private int cptRecharge; // compteur de tours (pour contrôler recharge)
+	private double tpsRecharge; // temps de rechargement exprimé en nbre de tours
+	private double cptRecharge; // compteur de tours (pour contrôler recharge)
 	
-	public Arme(String nom, int degMin, int degMax, Type typeDegats, int tpsRecharge) 
+	public Arme(String nom, int degMin, int degMax, Type typeDegats, double tpsRecharge) 
 	{
 		this.nom = nom;
 		this.degMin = degMin;
@@ -21,6 +21,14 @@ public class Arme {
 		this.typeDegats = typeDegats;
 		this.tpsRecharge = tpsRecharge;
 		cptRecharge = tpsRecharge;
+	}
+	
+	/*
+	 * Méthode qui retourne une copie de l'Arme courante (this)
+	 */
+	public Arme copieArme()
+	{
+		return new Arme(this.getNom(),this.getDegMin(),this.getDegMax(),this.getTypeDegats(),this.getTpsRecharge());
 	}
 	
 	/*
@@ -32,7 +40,7 @@ public class Arme {
 		
 		cptRecharge -= 1;
 		
-		if(cptRecharge != 0)
+		if(cptRecharge < 1)
 		{
 			return degatsInfliges;
 		}
@@ -56,7 +64,7 @@ public class Arme {
 					break;
 				case EXPLOSIF :
 					degatsInfliges *= 2;
-					tpsRecharge *= 2;
+					cptRecharge *= 2;
 					// Le tir a 1 chance sur 4 de rater
 					lancer = 1 + (int)(Math.random() * ((4 - 1) + 1));
 					if(lancer == 1)
@@ -74,6 +82,7 @@ public class Arme {
 		}
 	}
 
+	// Getters, Setters & Overrides
 	public String getNom() {
 		return nom;
 	}
@@ -106,7 +115,7 @@ public class Arme {
 		this.typeDegats = typeDegats;
 	}
 	
-	public int getTpsRecharge() {
+	public double getTpsRecharge() {
 		return tpsRecharge;
 	}
 
@@ -114,7 +123,7 @@ public class Arme {
 		this.tpsRecharge = tpsRecharge;
 	}
 
-	public int getCptRecharge() {
+	public double getCptRecharge() {
 		return cptRecharge;
 	}
 

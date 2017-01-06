@@ -71,7 +71,7 @@ public abstract class Vaisseau {
 	/*
 	 * Méthode d'ajout d'une arme aux armes du Vaisseau
 	 */
-	public void ajoutArme(Arme arme)
+	public void ajouteArme(Arme arme)
 	{
 		// Si il y a déjà trois armes
 		if(estPlein())
@@ -146,7 +146,11 @@ public abstract class Vaisseau {
 		return moyDegats;
 	}
 	
-	public void prendDegats(int degats)
+	
+	/*
+	 * Méthode qui définit la logique de prise des dégâts
+	 */
+	public void subitDegats(int degats)
 	{
 		if(pb > 0)
 		{
@@ -173,8 +177,12 @@ public abstract class Vaisseau {
 		}
 	}
 	
+	/*
+	 * Méthode abstraite qui définiera le comportement d'attaque
+	 */
 	abstract void attaque(Vaisseau vaisseau);
 	
+	// Getters, Setters & Overrides
 	public int getPs() {
 		return psTot;
 	}

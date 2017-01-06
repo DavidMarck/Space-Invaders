@@ -4,7 +4,7 @@ import java.util.List;
 public class SpaceInvaders {
 
 	private List<Joueur> lesJoueurs;
-	private Armurerie armurerie;
+	private Armurerie armurerie = Armurerie.getInstance();
 
 	public SpaceInvaders()
 	{
@@ -13,14 +13,12 @@ public class SpaceInvaders {
 	
 	private void init()
 	{
-		// Instanciation de l'armurerie
-		armurerie = new Armurerie();
 		
 		// Création, instanciation et ajout de joueurs à la liste des joueurs
 		lesJoueurs = new ArrayList<Joueur>();
 		
 		Joueur j1 = new Joueur("maRck","dAviD","OeufMayo");
-		j1.getVaisseau().ajoutArme((Arme)armurerie.getLesArmes().get(0));
+		j1.getVaisseau().ajouteArme((Arme)armurerie.getLesArmes().get(0));
 		
 		// Test ArmurerieException
 		/*
