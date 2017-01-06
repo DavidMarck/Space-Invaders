@@ -31,17 +31,26 @@ public class Arme {
 		return new Arme(this.getNom(),this.getDegMin(),this.getDegMax(),this.getTypeDegats(),this.getTpsRecharge());
 	}
 	
+	public boolean estRechargee()
+	{
+		return (cptRecharge == 1);
+	}
+	
 	/*
 	 * Méthode qui simule un tir
 	 */
 	public int tirer()
-	{
+	{	
 		int degatsInfliges = 0;
 		
 		cptRecharge -= 1;
 		
-		if(cptRecharge != 1)
+		if(cptRecharge > 0 && cptRecharge < tpsRecharge -1)
 		{
+			if(cptRecharge <= 1)
+			{
+				cptRecharge = tpsRecharge;
+			}
 			return degatsInfliges;
 		}
 		else
@@ -138,7 +147,7 @@ public class Arme {
 				+ " [" + "dégâts minimums : " + degMin 
 				+ "; dégâts maximums : " + degMax 
 				+ "; types dégâts : " + typeDegats
-				+ "; temps de rechargement(sec.) : " + tpsRecharge + "]";
+				+ "; temps de rechargement(tours) : " + tpsRecharge + "]";
 	}
 	
 }

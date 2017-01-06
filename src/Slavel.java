@@ -22,7 +22,10 @@ public class Slavel extends Vaisseau {
 	@Override
 	void attaque(Vaisseau vaisseau) 
 	{
-		// TODO Auto-generated method stub
+		for(Arme a : this.lesArmes)
+		{
+			vaisseau.subitDegats(a.tirer());
+		}
 	}
 
 }

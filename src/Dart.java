@@ -22,7 +22,10 @@ public class Dart extends Vaisseau {
 	@Override
 	void attaque(Vaisseau vaisseau)
 	{
-		
+		for(Arme a : this.lesArmes)
+		{
+			vaisseau.subitDegats(a.tirer());
+		}
 	}
 
 }
